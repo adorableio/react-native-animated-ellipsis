@@ -18,8 +18,10 @@ Just include the component in the output of any other component like this:
 render() {
   return (
     <View>
-      Loading
-      <AnimatedEllipsis />
+      <Text>
+        Loading
+        <AnimatedEllipsis />
+      </Text>
     </View>
   );
 }
@@ -27,7 +29,7 @@ render() {
 
 which will get you something like this:
 
-(gif)
+![Basic Example](https://raw.githubusercontent.com/wiki/adorableio/react-native-animated-ellipsis/images/example_basic.gif)
 
 
 ## Props
@@ -43,14 +45,14 @@ Customize the number of dots, animation speed, and style using these props:
 ## More Examples
 ```jsx
 <AnimatedEllipsis numberOfDots={10} />
+```
+
+![Ten Dots Example](https://raw.githubusercontent.com/wiki/adorableio/react-native-animated-ellipsis/images/example_ten_dots.gif)
+
+
 ```jsx
-
-(gif)
-
-
-```jsx
-<AnimatedEllipsis numberOfDots={5}
-                  animationDelay={700}
+<AnimatedEllipsis numberOfDots={4}
+                  animationDelay={150}
                   style={{
                     color: 'red',
                     fontSize: 72,
@@ -58,4 +60,4 @@ Customize the number of dots, animation speed, and style using these props:
 />
 ```
 
-(gif)
+![Complex Example](https://raw.githubusercontent.com/wiki/adorableio/react-native-animated-ellipsis/images/example_four_red_dots.gif)
