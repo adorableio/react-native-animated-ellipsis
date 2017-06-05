@@ -1,62 +1,80 @@
-import React, { Component }      from 'react';
-import { Text, Animated }        from 'react-native';
+import React, { Component }    from 'react';
+import { Text, Animated }      from 'react-native';
+import PropTypes               from 'prop-types';
 
 
 export default class AnimatedEllipsis extends Component {
+  static propTypes = {
+    numberOfDots: PropTypes.number,
+    animationDelay: PropTypes.number,
+    style: PropTypes.object,
+  };
+
+  static defaultProps = {
+    numberOfDots: 3,
+    animationDelay: 700,
+    style: {
+      color: '#aaa',
+      fontSize: 32,
+    }
+  };
+
   constructor(props) {
     super(props);
 
-    this._should_animate = true;
-
     this._animation_state = {
-      first_dot_opacity: new Animated.Value(0),
-      second_dot_opacity: new Animated.Value(0),
-      third_dot_opacity: new Animated.Value(0),
+      dot_opacities: this.initializeDots(),
       fade_direction: 1,
+      should_animate: true,
     };
   }
 
+  initializeDots() {
+    let opacities = [];
+
+    for (let i = 0; i < this.props.numberOfDots; i++) {
+      let dot = new Animated.Value(0);
+      opacities.push(dot);
+    }
+
+    return opacities;
+  }
+
   componentDidMount() {
-    this.fade_those_dots.bind(this)('first_dot_opacity');
+    this.animate_dots.bind(this)(0);
   }
 
   componentWillUnmount() {
-    this._should_animate = false;
+    this._animation_state.should_animate = false;
   }
 
-  fade_those_dots(which_dot) {
-    if (!this._should_animate) return;
+  animate_dots(which_dot) {
+    if (!this._animation_state.should_animate) return;
 
-    let dots = ['first_dot_opacity', 'second_dot_opacity', 'third_dot_opacity'];
-
-    if (typeof which_dot === 'undefined') {
-      which_dot = dots[0];
+    // swap fade direction when we hit end of list
+    if (which_dot >= this._animation_state.dot_opacities.length) {
+      which_dot = 0;
       this._animation_state.fade_direction = this._animation_state.fade_direction == 0 ? 1 : 0;
     }
 
-    let dot_index = dots.indexOf(which_dot);
-    let next_dot_index = dot_index + 1;
-    let next_dot = dots[next_dot_index];
+    let next_dot = which_dot + 1;
 
-    Animated.timing(this._animation_state[which_dot], {
+    Animated.timing(this._animation_state.dot_opacities[which_dot], {
       toValue: this._animation_state.fade_direction,
-      duration: 200,
-    }).start(this.fade_those_dots.bind(this, next_dot));
+      duration: this.props.animationDelay,
+    }).start(this.animate_dots.bind(this, next_dot));
   }
 
   render () {
+    let dots = this._animation_state.dot_opacities.map((o, i) =>
+      <Animated.Text key={i} style={{ opacity: o }}> .</Animated.Text>
+    );
+
     return (
       <Text style={this.props.style}>
-        <Animated.Text style={{
-          opacity: this._animation_state.first_dot_opacity
-        }}> .</Animated.Text>
-        <Animated.Text style={{
-          opacity: this._animation_state.second_dot_opacity
-        }}> .</Animated.Text>
-        <Animated.Text style={{
-          opacity: this._animation_state.third_dot_opacity
-        }}> .</Animated.Text>
+        {dots}
       </Text>
     );
   }
 }
+
