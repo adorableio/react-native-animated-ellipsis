@@ -24,7 +24,7 @@ export default class AnimatedEllipsis extends Component {
 
     this._animation_state = {
       dot_opacities: this.initializeDots(),
-      fade_direction: 1,
+      target_opacity: 1,
       should_animate: true,
     };
   }
@@ -54,13 +54,13 @@ export default class AnimatedEllipsis extends Component {
     // swap fade direction when we hit end of list
     if (which_dot >= this._animation_state.dot_opacities.length) {
       which_dot = 0;
-      this._animation_state.fade_direction = this._animation_state.fade_direction == 0 ? 1 : 0;
+      this._animation_state.target_opacity = this._animation_state.target_opacity == 0 ? 1 : 0;
     }
 
     let next_dot = which_dot + 1;
 
     Animated.timing(this._animation_state.dot_opacities[which_dot], {
-      toValue: this._animation_state.fade_direction,
+      toValue: this._animation_state.target_opacity,
       duration: this.props.animationDelay,
     }).start(this.animate_dots.bind(this, next_dot));
   }
