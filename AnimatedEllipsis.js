@@ -12,7 +12,7 @@ export default class AnimatedEllipsis extends Component {
 
   static defaultProps = {
     numberOfDots: 3,
-    animationDelay: 700,
+    animationDelay: 300,
     style: {
       color: '#aaa',
       fontSize: 32,
