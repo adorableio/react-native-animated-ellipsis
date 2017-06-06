@@ -15,12 +15,11 @@
   "homepage": "https://github.com/adorableio/react-native-animated-ellipsis",
   "license": "MIT",
   "dependencies": {
-    "prop-types": "^15.5.10"
+    "prop-types": "^15.5.10",
+    "babel-preset-stage-2": "^6.24.1"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
-    "babel-plugin-transform-react-jsx": "^6.24.1",
-    "babel-preset-latest": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1"
+    "babel-plugin-transform-react-jsx": "^6.24.1"
   }
 }
