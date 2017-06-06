@@ -54,7 +54,7 @@ Customize the number of dots, animation speed, and style using these props:
 <AnimatedEllipsis numberOfDots={10} />
 ```
 
-==========
+------
 
 ![Complex Example](https://raw.githubusercontent.com/wiki/adorableio/react-native-animated-ellipsis/images/example_four_red_dots.gif)
 
@@ -68,7 +68,7 @@ Customize the number of dots, animation speed, and style using these props:
 />
 ```
 
-==========
+------
 
 ![Kinda like iOS](https://raw.githubusercontent.com/wiki/adorableio/react-native-animated-ellipsis/images/example_ios_ish.gif)
 
