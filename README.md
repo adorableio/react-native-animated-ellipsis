@@ -1,6 +1,9 @@
 # React Native Animated Ellipsis
 A simple, customizable animated dots component for use in React Native apps. Ideal for loading screens.
 
+![Kinda like iOS](https://raw.githubusercontent.com/wiki/adorableio/react-native-animated-ellipsis/images/example_ios_ish.gif)
+
+
 ## Installation
 ```shell
 npm install --save react-native-animated-ellipsis
@@ -39,16 +42,21 @@ Customize the number of dots, animation speed, and style using these props:
 |----------|-------------|
 | **`numberOfDots`** | The number of dots you'd like to show. Defaults to **3**. |
 | **`animationDelay`** | The length in milliseconds of each phase of the animated. Defaults to **300**. |
+| **`minOpacity`** | The minimum opacity for the dots. Defaults to **0**. |
 | **`style`** | CSS to apply to the dots. It accepts any styles that a normal `<Text />` component can take. |
 
 
 ## More Examples
+
+![Ten Dots Example](https://raw.githubusercontent.com/wiki/adorableio/react-native-animated-ellipsis/images/example_ten_dots.gif)
+
 ```jsx
 <AnimatedEllipsis numberOfDots={10} />
 ```
 
-![Ten Dots Example](https://raw.githubusercontent.com/wiki/adorableio/react-native-animated-ellipsis/images/example_ten_dots.gif)
+==========
 
+![Complex Example](https://raw.githubusercontent.com/wiki/adorableio/react-native-animated-ellipsis/images/example_four_red_dots.gif)
 
 ```jsx
 <AnimatedEllipsis numberOfDots={4}
@@ -60,4 +68,31 @@ Customize the number of dots, animation speed, and style using these props:
 />
 ```
 
-![Complex Example](https://raw.githubusercontent.com/wiki/adorableio/react-native-animated-ellipsis/images/example_four_red_dots.gif)
+==========
+
+![Kinda like iOS](https://raw.githubusercontent.com/wiki/adorableio/react-native-animated-ellipsis/images/example_ios_ish.gif)
+
+```jsx
+<View style={{
+    alignItems: 'center',
+    backgroundColor: '#e2e2eb',
+    borderRadius: 100,
+    height: 60,
+    margin: 50,
+    overflow: 'hidden',
+    width: 100,
+  }}>
+  <AnimatedEllipsis numberOfDots={3}
+                    minOpacity={0.4}
+                    animationDelay={200}
+                    style={{
+                      color: '#94939b',
+                      fontSize: 100,
+                      left: -10,
+                      letterSpacing: -15,
+                      textAlign: 'center',
+                      top: -60,
+                    }}
+    />
+</View>
+```
