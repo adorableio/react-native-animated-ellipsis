@@ -3,7 +3,9 @@
   "version": "0.0.2",
   "description": "A simple, customizable animated dots component for use in React Native apps. Ideal for loading screens.",
   "main": "AnimatedEllipsis.js",
-  "scripts": {},
+  "scripts": {
+    "build": "babel src/ -d dist"
+  },
   "author": "Casey Brant <casey@adorable.io>",
   "repository": {
     "type": "git",
@@ -13,5 +15,11 @@
   "license": "MIT",
   "dependencies": {
     "prop-types": "^15.5.10"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1"
   }
 }
