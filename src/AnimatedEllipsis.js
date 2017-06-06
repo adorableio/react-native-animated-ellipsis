@@ -7,12 +7,14 @@ export default class AnimatedEllipsis extends Component {
   static propTypes = {
     numberOfDots: PropTypes.number,
     animationDelay: PropTypes.number,
+    minOpacity: PropTypes.number,
     style: PropTypes.object,
   };
 
   static defaultProps = {
     numberOfDots: 3,
     animationDelay: 300,
+    minOpacity: 0,
     style: {
       color: '#aaa',
       fontSize: 32,
@@ -33,7 +35,7 @@ export default class AnimatedEllipsis extends Component {
     let opacities = [];
 
     for (let i = 0; i < this.props.numberOfDots; i++) {
-      let dot = new Animated.Value(0);
+      let dot = new Animated.Value(this.props.minOpacity);
       opacities.push(dot);
     }
 
@@ -54,7 +56,9 @@ export default class AnimatedEllipsis extends Component {
     // swap fade direction when we hit end of list
     if (which_dot >= this._animation_state.dot_opacities.length) {
       which_dot = 0;
-      this._animation_state.target_opacity = this._animation_state.target_opacity == 0 ? 1 : 0;
+      let min = this.props.minOpacity;
+      this._animation_state.target_opacity =
+        this._animation_state.target_opacity == min ? 1 : min;
     }
 
     let next_dot = which_dot + 1;
