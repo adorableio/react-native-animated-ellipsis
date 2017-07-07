@@ -8,7 +8,7 @@ export default class AnimatedEllipsis extends Component {
     numberOfDots: PropTypes.number,
     animationDelay: PropTypes.number,
     minOpacity: PropTypes.number,
-    style: PropTypes.object,
+    style: Text.propTypes.style,
   };
 
   static defaultProps = {
