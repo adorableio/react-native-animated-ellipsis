@@ -78,12 +78,6 @@ export default class AnimatedEllipsis extends Component {
     );
 
     return <View style={styles.container}>{dots}</View>
-
-    // return (
-    //   <Text style={this.props.style}>
-    //     {dots}
-    //   </Text>
-    // );
   }
 }
 
