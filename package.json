@@ -5,7 +5,7 @@
   "main": "dist/AnimatedEllipsis.js",
   "scripts": {
     "build": "babel src/ -d dist",
-    "prepublish": "npm run build"
+    "prepare": "npm run build"
   },
   "author": "Casey Brant <casey@adorable.io>",
   "repository": {
