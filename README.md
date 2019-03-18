@@ -73,26 +73,13 @@ Customize the number of dots, animation speed, and style using these props:
 ![Kinda like iOS](https://raw.githubusercontent.com/wiki/adorableio/react-native-animated-ellipsis/images/example_ios_ish.gif)
 
 ```jsx
-<View style={{
-    alignItems: 'center',
-    backgroundColor: '#e2e2eb',
-    borderRadius: 100,
-    height: 60,
-    margin: 50,
-    overflow: 'hidden',
-    width: 100,
-  }}>
-  <AnimatedEllipsis numberOfDots={3}
-                    minOpacity={0.4}
-                    animationDelay={200}
-                    style={{
-                      color: '#94939b',
-                      fontSize: 100,
-                      left: -10,
-                      letterSpacing: -15,
-                      textAlign: 'center',
-                      top: -60,
-                    }}
-    />
-</View>
+<AnimatedEllipsis numberOfDots={3}
+                  minOpacity={0.4}
+                  animationDelay={200}
+                  style={{
+                    color: '#94939b',
+                    fontSize: 100,
+                    letterSpacing: -15,
+                  }}
+  />
 ```
