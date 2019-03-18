@@ -1,5 +1,5 @@
 import React, { Component }    from 'react';
-import { Text, Animated }      from 'react-native';
+import { Text, Animated, View, StyleSheet }      from 'react-native';
 import PropTypes               from 'prop-types';
 
 
@@ -71,14 +71,18 @@ export default class AnimatedEllipsis extends Component {
 
   render () {
     let dots = this._animation_state.dot_opacities.map((o, i) =>
-      <Animated.Text key={i} style={{ opacity: o }}> .</Animated.Text>
+      <Animated.Text key={i} style={[this.props.style, { opacity: o }]}>
+        {' '}
+        .
+      </Animated.Text>
     );
 
-    return (
-      <Text style={this.props.style}>
-        {dots}
-      </Text>
-    );
+    return <View style={styles.container}>{dots}</View>
   }
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row'
+  }
+});

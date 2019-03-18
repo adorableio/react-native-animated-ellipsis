@@ -1,11 +1,11 @@
 {
   "name": "react-native-animated-ellipsis",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A simple, customizable animated dots component for use in React Native apps. Ideal for loading screens.",
   "main": "dist/AnimatedEllipsis.js",
   "scripts": {
     "build": "babel src/ -d dist",
-    "prepublish": "npm run build"
+    "prepare": "npm run build"
   },
   "author": "Casey Brant <casey@adorable.io>",
   "repository": {
