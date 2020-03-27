@@ -66,6 +66,7 @@ export default class AnimatedEllipsis extends Component {
     Animated.timing(this._animation_state.dot_opacities[which_dot], {
       toValue: this._animation_state.target_opacity,
       duration: this.props.animationDelay,
+      useNativeDriver: false,
     }).start(this.animate_dots.bind(this, next_dot));
   }
 
