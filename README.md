@@ -44,6 +44,7 @@ Customize the number of dots, animation speed, and style using these props:
 | **`animationDelay`** | The length in milliseconds of each phase of the animated. Defaults to **300**. |
 | **`minOpacity`** | The minimum opacity for the dots. Defaults to **0**. |
 | **`style`** | CSS to apply to the dots. It accepts any styles that a normal `<Text />` component can take. |
+| **`useNativeDriver`** | Specify true or false. Defaults to **true**. |
 
 
 ## More Examples
