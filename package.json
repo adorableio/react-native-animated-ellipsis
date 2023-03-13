@@ -21,5 +21,6 @@
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-plugin-transform-react-jsx": "^6.24.1"
-  }
+  },
+  "types": "./src/AnimatedEllipsis.d.ts"
 }
