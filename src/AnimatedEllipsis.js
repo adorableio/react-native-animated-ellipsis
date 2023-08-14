@@ -1,7 +1,6 @@
-import React, { Component }    from 'react';
-import { Text, Animated, View, StyleSheet }      from 'react-native';
-import PropTypes               from 'prop-types';
-
+import React, { Component } from "react";
+import { Text, Animated, View, StyleSheet } from "react-native";
+import PropTypes from "prop-types";
 
 export default class AnimatedEllipsis extends Component {
   static propTypes = {
@@ -16,9 +15,9 @@ export default class AnimatedEllipsis extends Component {
     animationDelay: 300,
     minOpacity: 0,
     style: {
-      color: '#aaa',
+      color: "#aaa",
       fontSize: 32,
-    }
+    },
   };
 
   constructor(props) {
@@ -66,23 +65,24 @@ export default class AnimatedEllipsis extends Component {
     Animated.timing(this._animation_state.dot_opacities[which_dot], {
       toValue: this._animation_state.target_opacity,
       duration: this.props.animationDelay,
+      useNativeDriver: false,
     }).start(this.animate_dots.bind(this, next_dot));
   }
 
-  render () {
-    let dots = this._animation_state.dot_opacities.map((o, i) =>
+  render() {
+    let dots = this._animation_state.dot_opacities.map((o, i) => (
       <Animated.Text key={i} style={[this.props.style, { opacity: o }]}>
-        {' '}
+        {" "}
         .
       </Animated.Text>
-    );
+    ));
 
-    return <View style={styles.container}>{dots}</View>
+    return <View style={styles.container}>{dots}</View>;
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row'
-  }
+    flexDirection: "row",
+  },
 });
