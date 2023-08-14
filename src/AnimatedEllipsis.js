@@ -24,22 +24,20 @@ const AnimatedEllipsis = ({
   const animateDots = (whichDot) => {
     if (!shouldAnimateRef.current) return;
 
-    // Swap fade direction when we hit the end of the list
-    if (whichDot >= dotOpacities.length) {
-      whichDot = 0;
-      const min = minOpacity;
-      setTargetOpacity((prevOpacity) =>
-        prevOpacity === min ? 1 : min
-      );
-    }
+    // Update target opacity based on the current dot's opacity
+    const updatedTargetOpacity =
+      dotOpacities[whichDot]._value === minOpacity ? 1 : minOpacity;
 
-    const nextDot = whichDot + 1;
-
+    // Animate the current dot's opacity
     Animated.timing(dotOpacities[whichDot], {
-      toValue: targetOpacity,
+      toValue: updatedTargetOpacity,
       duration: animationDelay,
       useNativeDriver: false,
-    }).start(() => animateDots(nextDot));
+    }).start(() => {
+      // Move to the next dot
+      const nextDot = (whichDot + 1) % numberOfDots;
+      animateDots(nextDot); // Call animateDots for the next dot
+    });
   };
 
   useEffect(() => {
